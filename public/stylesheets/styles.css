@@ -38,6 +38,7 @@ hr {
 h1 {
   font-size: 5.5em;
   letter-spacing: -0.04em;
+  text-rendering: optimizeLegibility;
 }
 h1 a {
   text-decoration: none;
