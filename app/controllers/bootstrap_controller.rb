@@ -1,5 +1,5 @@
 class BootstrapController < ApplicationController
-  VALID_OPTS = %w[hard]
+  VALID_OPTS = %w[hard next]
   def up
     opt_list = (params[:opts] || '').split(',')
     invalid_opts = opt_list.reject {|opt| VALID_OPTS.include? opt }
