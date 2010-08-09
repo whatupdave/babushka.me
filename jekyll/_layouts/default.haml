@@ -74,14 +74,14 @@
       var show_page = function(a) {
         $('nav a').removeClass('active').animate(
           {
-            'paddingTop': (($('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom')))) / 1.4) + 'px'},
+            'paddingTop': (($('header h1').height() - (a.height() + parseInt(a.css('paddingBottom')))) / 1.4) + 'px'},
           {queue: false, duration: 300}
         );
         $('section:visible').hide();
         $('section#' +
           a.addClass('active').animate(
             {
-              'paddingTop': $('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom'))) + 'px'
+              'paddingTop': $('header h1').height() - (a.height() + parseInt(a.css('paddingBottom'))) + 'px'
             }, 300, on_show_page
           ).attr('href')
         ).show();
