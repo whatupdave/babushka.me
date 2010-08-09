@@ -1,0 +1,43 @@
+---
+layout: default
+title: ben hoskings
+---
+
+%p.hello
+  Welcome! To get involved or read about the latest developments, the
+  %a{:href => "http://groups.google.com/group/babushka_app"} Google group
+  is a good place to start. Proper docs are in progress, and currently all together in
+  = succeed "," do
+    %a{:href => "http://github.com/benhoskings/babushka#readme"} the README
+  and there are some more
+  %a{:href => "http://vimeo.com/9343310"} recent
+  %a{:href => "http://vimeo.com/10008355"} screencasts
+  too.
+%hr/
+.container
+  .video
+    %object{:height => "405", :width => "600"}
+      %param{:name => "allowfullscreen", :value => "true"}/
+      %param{:name => "allowscriptaccess", :value => "always"}/
+      %param{:name => "movie", :value => "http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1"}/
+      %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :height => "405", :src => "http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1", :type => "application/x-shockwave-flash", :width => "600"}/
+  %hr/
+  %h3 Related
+  %ul
+    %li
+      nginx configs as rendered in the demo:
+      = succeed "," do
+        %a{:href => "/samples/nginx.conf"} nginx.conf
+      = succeed "," do
+        %a{:href => "/samples/twetter.com.conf"} twetter.com.conf
+      %a{:href => "/samples/twetter.com.common"} twetter.com.common
+    %li
+      twetter, by
+      = succeed "," do
+        %a{:href => "http://github.com/mattallen"} Matt Allen
+      %a{:href => "http://github.com/rnielsen"} Rob Nielsen
+      and others:
+      %a{:href => "http://github.com/rnielsen/twetter"} http://github.com/rnielsen/twetter
+    %li
+      my dot files:
+      %a{:href => "http://github.com/benhoskings/dot-files"} http://github.com/benhoskings/dot-files
