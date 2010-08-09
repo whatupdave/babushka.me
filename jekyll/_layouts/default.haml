@@ -20,8 +20,31 @@
           %span.arrow ↪
           github
 
-    %article
-      = content
+    %section#demo
+      %article
+        = content
+    %section#get_it
+      %p
+        You can install babushka on your system, no matter what state it's in, using
+        = succeed "." do
+          %code babushka.me/up
+        That's a script that knows enough to install ruby if required (babushka's only runtime dependency), and then download a temporary babushka that knows how to do the proper install.
+      .bootstrap_select
+        %form
+          %input#bootstrap_curl{:name => "bootstrap_select", :type => "radio", :value => "curl"}/
+          %label{:for => "bootstrap_curl"} curl
+          %input#bootstrap_wget{:name => "bootstrap_select", :type => "radio", :value => "wget"}/
+          %label{:for => "bootstrap_wget"} wget
+      %p New Macs have curl, stock Ubuntu has wget.
+      .bootstrap_option.curl
+        %input{:readonly => "true", :type => "text", :value => "bash -c \"`curl babushka.me/up`\""}/
+      .bootstrap_option.wget
+        %input{:readonly => "true", :type => "text", :value => "bash -c \"`wget -O - babushka.me/up`\""}/
+      %p It's the perfect way to get started on a new server, or on your new laptop, since it can literally be the first command you run on the machine.
+      %p
+        If you'd prefer to install manually or just check out the code, check
+        %a{:href => "http://github.com/benhoskings/babushka"} the github page
+        for the repo URL.
 
     %footer
       %span
