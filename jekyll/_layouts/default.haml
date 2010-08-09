@@ -11,7 +11,7 @@
       %h1
         %a{:href => '/'} babushka
       %nav
-        %a{:href => '#demo'} demo
+        %a{:href => '#hello'} hello
         %a{:href => '#get_it'} get it
         %a{:href => 'http://github.com/benhoskings/babushka'}
           %span.arrow ↪
@@ -20,9 +20,18 @@
           %span.arrow ↪
           twitter
 
-    %section#demo
-      %article
-        = content
+    %section#hello
+      %p.hello
+        Welcome! To get involved or read about the latest developments, the
+        %a{:href => "http://groups.google.com/group/babushka_app"} Google group
+        is a good place to start. Proper docs are in progress, and currently all together in
+        = succeed "," do
+          %a{:href => "http://github.com/benhoskings/babushka#readme"} the README
+        and there are some more
+        %a{:href => "http://vimeo.com/9343310"} recent
+        %a{:href => "http://vimeo.com/10008355"} screencasts
+        too.
+      = content
     %section#get_it
       %p
         You can install babushka on your system, no matter what state it's in, using
@@ -90,7 +99,7 @@
         $('nav a[href^=#]').click(function() { show_page($(this)); });
         if (document.location.hash == '') {
           $('section:visible').hide();
-          document.location.hash = '#demo';
+          document.location.hash = '#hello';
         }
         $('nav a[href=' + document.location.hash + ']').click();
       }
