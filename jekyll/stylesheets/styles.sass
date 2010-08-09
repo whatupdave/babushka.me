@@ -29,7 +29,6 @@ hr
   border-top: #000 1px solid
 
 h1
-  font-size: 5.5em
   letter-spacing: -0.04em
   text-rendering: optimizeLegibility
   a
@@ -64,6 +63,10 @@ body
 header
   border-bottom: #000 1px solid
   background: transparent url(../images/babushka.png) bottom right no-repeat
+  h1
+    float: left
+    font-size: 5.5em
+    margin-right: (2em / 5.5)
 
 footer
   text-align: right
@@ -74,32 +77,24 @@ footer
 header, nav
   overflow: hidden
 
-.h1
-  margin-right: 2em
-
-header .h1
-  float: left
-
 nav
   float: left
-  li
+  a
     float: left
     display: block
-    width: 6em
-    a
-    display: block
-      font-size: 120%
-      line-height: 1.2
-      padding: 0.3em
-      border-left: #000 1px solid
-      color: #000
-      font-weight: bold
-      text-decoration: none
-      /*  -webkit-transition: text-shadow 0.5s linear;
-      &:hover
-        text-shadow: #000 0px 0px 3px
-      .arrow
-        font-size: 80%
+    width: (6em / 1.36)
+    font-size: 120%
+    line-height: 1.2
+    padding: 0.3em
+    border-left: #000 1px solid
+    color: #000
+    font-weight: bold
+    text-decoration: none
+    /*  -webkit-transition: text-shadow 0.5s linear;
+    &:hover
+      text-shadow: #000 0px 0px 3px
+    .arrow
+      font-size: 80%
 
 article
   clear: both
