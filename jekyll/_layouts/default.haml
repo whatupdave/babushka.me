@@ -46,8 +46,8 @@
     
     :javascript
       var on_show_page = function() {
-        $('.sections > div:hidden .container').hide();
-        $('.sections > div:visible .container:hidden').show();
+        $('section:hidden .container').hide();
+        $('section:visible .container:hidden').show();
       }
       var show_page = function(a) {
         $('nav a').removeClass('active').animate(
@@ -55,8 +55,8 @@
             'paddingTop': (($('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom')))) / 1.4) + 'px'},
           {queue: false, duration: 300}
         );
-        $('.sections > div:visible').hide();
-        $('.sections > div#' +
+        $('section:visible').hide();
+        $('section#' +
           a.addClass('active').animate(
             {
               'paddingTop': $('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom'))) + 'px'
@@ -67,7 +67,7 @@
       var domready_nav = function() {
         $('nav a[href^=#]').click(function() { show_page($(this)); });
         if (document.location.hash == '') {
-          $('.sections > div:visible').hide();
+          $('section:visible').hide();
           document.location.hash = '#demo';
         }
         $('nav a[href=' + document.location.hash + ']').click();
