@@ -1,3 +1,4 @@
+$leading: 1.5
 $border: gray 1px solid
 $textured: #bbb url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
 
@@ -12,7 +13,7 @@ $textured: #bbb url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAA
   padding: 0
 
 body
-  font: 14px/1.5 'Helvetica Neue', Arial, sans-serif
+  font: 14px/#{$leading} 'Helvetica Neue', Arial, sans-serif
   width: 40em
   margin: 0 auto
 
@@ -26,9 +27,11 @@ h3
   font-size: 1.2em
   font-weight: bold
 
+p, ul, .video
+  margin: #{$leading}em 0
+
 p
   display: block
-  margin: 1em 0
   color: #333
 
 a
