@@ -76,24 +76,14 @@
       } catch(err) {}
     
     :javascript
-      var on_show_page = function() {
-        $('section:hidden .container').hide();
-        $('section:visible .container:hidden').show();
-      }
       var show_page = function(a) {
-        $('nav a').removeClass('active').animate(
-          {
-            'paddingTop': (($('header h1').height() - (a.height() + parseInt(a.css('paddingBottom')))) / 1.4) + 'px'},
-          {queue: false, duration: 300}
-        );
+        $('nav a').removeClass('active');
         $('section:visible').hide();
         $('section#' +
-          a.addClass('active').animate(
-            {
-              'paddingTop': $('header h1').height() - (a.height() + parseInt(a.css('paddingBottom'))) + 'px'
-            }, 300, on_show_page
-          ).attr('href')
+          a.addClass('active').attr('href')
         ).show();
+        $('section:hidden .container').hide();
+        $('section:visible .container:hidden').show();
       };
       var domready_nav = function() {
         $('nav a[href^=#]').click(function() { show_page($(this)); });
