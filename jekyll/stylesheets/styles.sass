@@ -1,12 +1,22 @@
 $leading: 1.5
 $border: gray 1px solid
-$textured: #bbb url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
+$background_color: #bbb
+$hover_color: #8E173F
+$babushka_me_up_color: #333
+$transition_out_params: 0.4s ease-in-out
+$transition_in_params: 0.2s ease-in-out
+$textured: $background_color url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
 
 @mixin radius($rad: 3px)
   -webkit-border-radius: $rad
   -moz-border-radius: $rad
   -o-border-radius: $rad
   border-radius: $rad
+
+@mixin smoothly_hover($attribute: text-shadow)
+  -webkit-transition: $attribute $transition_out_params
+  &:hover
+    -webkit-transition: $attribute $transition_in_params
 
 *
   margin: 0
@@ -35,8 +45,12 @@ p
   color: #333
 
 a
+  @include smoothly_hover(text-shadow)
   color: #000
   font-weight: bold
+  text-decoration: none
+  &:hover
+    text-shadow: $hover_color 0 0 0.2em
 
 code
   @include radius
@@ -53,10 +67,6 @@ hr
 h1
   letter-spacing: -0.07em
   text-rendering: optimizeLegibility
-  a
-    text-decoration: none
-    &:hover
-      text-shadow: #000 0 0 5px
 
 header
   border-bottom: $border
@@ -83,9 +93,6 @@ nav
     color: black
     font-weight: bold
     text-decoration: none
-    /*  -webkit-transition: text-shadow 0.5s linear;
-    &:hover
-      text-shadow: #000 0px 0px 3px
     &.external
       padding: 0 0 0 1.2em
       float: right
@@ -111,14 +118,21 @@ nav, p, .bootstrap_select
 
 .bootstrap_option
   @include radius(3px)
+  @include smoothly_hover(background-color)
   overflow: hidden
   padding: 0.4em
   line-height: 1.2
   background: $textured
+  &:hover
+    background-color: lighten($hover_color, 35%)
+    input
+      color: darken($babushka_me_up_color, 20%)
+      -webkit-transition: color $transition_in_params
   input
+    color: $babushka_me_up_color
+    -webkit-transition: color $transition_out_params
     background: transparent
-    font-size: 2em
+    font-size: 1.9em
     letter-spacing: -0.05em
-    color: #333
     border: none
     width: 100%
