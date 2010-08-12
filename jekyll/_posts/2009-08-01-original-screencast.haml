@@ -3,13 +3,15 @@ layout: post
 title: original screencast
 ---
 
-.container
-  .video
-    %object{:width => "560", :height => "380"}
-      %param{:name => "allowfullscreen", :value => "true"}/
-      %param{:name => "allowscriptaccess", :value => "always"}/
-      %param{:name => "movie", :value => "http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1"}/
-      %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :width => "560", :height => "380", :src => "http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1", :type => "application/x-shockwave-flash"}/
+%figure
+  %video{:controls => "controls", :preload => "preload", :width => "560", :height => "378"}
+    %source{:src => "/videos/2009-09-27-zero-to-hero-with-babushka.mp4", :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}/
+    %source{:src => "/videos/2009-09-27-zero-to-hero-with-babushka.ogv", :type => 'video/ogg; codecs="theora, vorbis"'}/
+  %figcaption
+    Download this video as
+    %a{:href => "2009-09-27-zero-to-hero-with-babushka.mp4"} MP4
+    or
+    %a{:href => "2009-09-27-zero-to-hero-with-babushka.ogv"} Ogg
 
 %ul
   %li
