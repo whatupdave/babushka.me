@@ -10,10 +10,17 @@ function has {
   type "$1" >/dev/null 2>&1
 }
 
+function pkg_manager {
+  managers=(apt-get)
+  for manager in "${managers[@]}"; do
+    has "$manager" && echo "$manager" && exit
+  done
+}
+
 function check {
-  if !has 'ruby' && !has 'apt-get'; then
-    echo "Sorry, you don't have ruby installed, and I only know how to install it for you"
-    false_with "on apt-based systems."
+  if !has 'ruby' && !has $(pkg_manager); then
+    echo "Sorry, you don't have ruby installed, and I don't know how to install it for you"
+    false_with "on this system."
   elif !has 'curl' && !has 'wget'; then
     false_with "Sorry, you need either curl or wget installed before I can download."
   else
