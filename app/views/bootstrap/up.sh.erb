@@ -11,7 +11,7 @@ function has {
 }
 
 function pkg_manager {
-  managers=(apt-get)
+  managers=(apt-get brew)
   for manager in "${managers[@]}"; do
     has "$manager" && echo "$manager" && exit
   done
@@ -20,6 +20,7 @@ function pkg_manager {
 function update_manager {
   case $(pkg_manager) in
     apt-get) sudo apt-get update -qqy ;;
+    brew) brew update ;;
     *)
   esac
 }
@@ -27,6 +28,7 @@ function update_manager {
 function install_ruby {
   case $(pkg_manager) in
     apt-get) sudo apt-get install -qqy ruby ;;
+    brew) brew install ruby ;;
     *)
   esac
 }
