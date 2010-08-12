@@ -45,9 +45,12 @@ h3
   font-size: 1.2em
   font-weight: bold
 
-p, ul, .video
+p, ul
   margin: #{$leading}em $side_padding
-nav, .bootstrap_select
+video
+  // video margins don't seem to collapse
+  margin-top: #{$leading}em
+nav, figcaption, .bootstrap_select
   padding: 0 $side_padding
 
 p
@@ -117,11 +120,6 @@ nav
 
 article
   clear: both
-  .video
-    background-color: #000
-    object
-      display: block
-      margin: 0 auto
 
 .bootstrap_select
   float: left
