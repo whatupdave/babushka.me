@@ -17,6 +17,20 @@ function pkg_manager {
   done
 }
 
+function update_manager {
+  case $(pkg_manager) in
+    apt-get) sudo apt-get update -qqy ;;
+    *)
+  esac
+}
+
+function install_ruby {
+  case $(pkg_manager) in
+    apt-get) sudo apt-get install -qqy ruby ;;
+    *)
+  esac
+}
+
 function check {
   if !has 'ruby' && !has $(pkg_manager); then
     echo "Sorry, you don't have ruby installed, and I don't know how to install it for you"
@@ -60,8 +74,8 @@ function install_ruby_if_required {
     true # already installed
   else
     echo "First we need to install ruby (via $(pkg_manager))."
-    sudo apt-get update -qqy
-    sudo apt-get install -qqy ruby
+    update_manager
+    install_ruby
     if !has 'ruby'; then
       false_with "Argh, the ruby install failed."
     else
