@@ -6,7 +6,9 @@ $hover_color: #8E173F
 $babushka_me_up_color: #333
 $transition_out_params: 0.4s ease-in-out
 $transition_in_params: 0.15s ease-in-out
-$textured: $background_color url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
+
+@mixin textured($with_background: $background_color)
+  background: $with_background url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
 
 @mixin radius($rad: 3px)
   -webkit-border-radius: $rad
@@ -62,8 +64,7 @@ a
 
 code
   @include radius
-  background: $textured
-  background-color: #eee
+  @include textured(lighten($background_color, 20%))
   display: inline-block
   padding: 0 0.3em
 
@@ -124,10 +125,10 @@ article
 .bootstrap_option
   @include radius(3px)
   @include smoothly_hover(background-color)
+  @include textured
   overflow: hidden
   padding: 0.4em
   line-height: 1.2
-  background: $textured
   &:hover
     background-color: lighten($hover_color, 35%)
     input
