@@ -21,7 +21,7 @@
         %span.arrow ↪
         twitter
 
-    %section#hello
+    %article#hello
       %aside
         Welcome! To get involved or read about the latest developments, the
         %a{:href => "http://groups.google.com/group/babushka_app"} Google group
@@ -33,14 +33,14 @@
         %a{:href => "http://vimeo.com/10008355"} screencasts
         too.
 
-    %section#demo
+    %article#demo
       = content
       %p
         You can check out the other babushka screencasts
         = succeed '.' do
           %a{:href => 'http://vimeo.com/benhoskings/videos/search:babushka/sort:newest'} here
 
-    %section#get_it
+    %article#get_it
       %p
         You can install babushka on your system, no matter what state it's in, using
         = succeed "." do
@@ -86,17 +86,17 @@
     :javascript
       var show_page = function(a) {
         $('nav a').removeClass('active');
-        $('section:visible').hide();
-        $('section#' +
+        $('article:visible').hide();
+        $('article#' +
           a.addClass('active').attr('href')
         ).show();
-        $('section:hidden .container').hide();
-        $('section:visible .container:hidden').show();
+        $('article:hidden .container').hide();
+        $('article:visible .container:hidden').show();
       };
       var domready_nav = function() {
         $('nav a[href^=#]').click(function() { show_page($(this)); });
         if (document.location.hash == '') {
-          $('section:visible').hide();
+          $('article:visible').hide();
           document.location.hash = '#hello';
         }
         $('nav a[href=' + document.location.hash + ']').click();
