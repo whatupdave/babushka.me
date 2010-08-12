@@ -1,6 +1,15 @@
 $leading: 1.5
+$larger_size: 1.2
+$side_padding: 0.25em
 $border: gray 1px solid
-$textured: #bbb url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
+$background_color: #bbb
+$hover_color: #8E173F
+$babushka_me_up_color: #333
+$transition_out_params: 0.4s ease-in-out
+$transition_in_params: 0.15s ease-in-out
+
+@mixin textured($with_background: $background_color)
+  background: $with_background url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==)
 
 @mixin radius($rad: 3px)
   -webkit-border-radius: $rad
@@ -8,17 +17,26 @@ $textured: #bbb url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAA
   -o-border-radius: $rad
   border-radius: $rad
 
+@mixin smoothly_hover($attribute: text-shadow)
+  -webkit-transition: $attribute $transition_out_params
+  &:hover
+    -webkit-transition: $attribute $transition_in_params
+
 *
   margin: 0
   padding: 0
 
 body
-  font: 14px/#{$leading} 'Helvetica Neue', Arial, sans-serif
+  font: 16px/#{$leading} 'Helvetica Neue', Arial, sans-serif
+  font-weight: 200
   width: 560px
   margin: 0 auto
 
 pre, code, tt, .bootstrap_option input
   font-family: Menlo, Monaco, monospace
+
+abbr,article,aside,canvas,figure,footer,header,hgroup,nav,section
+  display: block
 
 ul
   list-style-type: none
@@ -28,20 +46,32 @@ h3
   font-weight: bold
 
 p, ul, .video
-  margin: #{$leading}em 0
+  margin: #{$leading}em $side_padding
+nav, .bootstrap_select
+  padding: 0 $side_padding
 
 p
   display: block
   color: #333
 
 a
+  @include smoothly_hover(text-shadow)
   color: #000
   font-weight: bold
+  text-decoration: none
+  &:hover
+    text-shadow: $hover_color 0 0 0.2em
+
+aside, code
+  @include radius
+  @include textured(lighten($background_color, 20%))
+
+aside
+  font-size: #{$larger_size}em
+  margin: #{$leading / $larger_size}em 0
+  padding: $side_padding
 
 code
-  @include radius
-  background: $textured
-  background-color: #eee
   display: inline-block
   padding: 0 0.3em
 
@@ -53,15 +83,12 @@ hr
 h1
   letter-spacing: -0.07em
   text-rendering: optimizeLegibility
-  a
-    text-decoration: none
-    &:hover
-      text-shadow: #000 0 0 5px
 
 header
   border-bottom: $border
   h1
-    font-size: 7em
+    font-size: 6em
+    line-height: $leading * 0.9
     text-align: center
 
 footer
@@ -76,32 +103,25 @@ nav
   a
     display: block
     float: left
-    font-size: 1.2em
     line-height: 1.7
     width: (6em / 1.36)
     padding-right: 0 1.2em 0 0
     color: black
     font-weight: bold
     text-decoration: none
-    /*  -webkit-transition: text-shadow 0.5s linear;
-    &:hover
-      text-shadow: #000 0px 0px 3px
     &.external
       padding: 0 0 0 1.2em
       float: right
     .arrow
       font-size: 80%
 
-section
+article
   clear: both
   .video
     background-color: #000
     object
       display: block
       margin: 0 auto
-
-nav, p, .bootstrap_select
-  padding: 0 0.25em
 
 .bootstrap_select
   float: left
@@ -111,14 +131,21 @@ nav, p, .bootstrap_select
 
 .bootstrap_option
   @include radius(3px)
+  @include smoothly_hover(background-color)
+  @include textured
   overflow: hidden
   padding: 0.4em
   line-height: 1.2
-  background: $textured
+  &:hover
+    background-color: lighten($hover_color, 35%)
+    input
+      color: darken($babushka_me_up_color, 20%)
+      -webkit-transition: color $transition_in_params
   input
+    color: $babushka_me_up_color
+    -webkit-transition: color $transition_out_params
     background: transparent
-    font-size: 2em
+    font-size: 1.6em
     letter-spacing: -0.05em
-    color: #333
     border: none
     width: 100%
