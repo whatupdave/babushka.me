@@ -40,8 +40,11 @@ h3
   font-size: 1.2em
   font-weight: bold
 
-p, ul, .video
+p, ul
   margin: #{$leading}em 0
+video
+  // video margins don't seem to collapse
+  margin-top: #{$leading}em
 
 p
   display: block
