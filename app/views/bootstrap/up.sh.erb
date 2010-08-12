@@ -35,7 +35,7 @@ function welcome {
   echo "installs or updates babushka and its dependencies as required."
   echo ""
   if has 'ruby'; then
-    echo "You already have ruby `ruby --version | awk '{print $2}'`, so you're all set."
+    echo "You already have ruby $(ruby --version | awk '{print $2}'), so you're all set."
   else
     echo "You don't have ruby installed, so we'll take care of that first (using apt)."
   fi
@@ -58,7 +58,7 @@ function install_ruby_if_required {
     if !has 'ruby'; then
       false_with "Argh, the ruby install failed."
     else
-      true_with "Nice, ruby `ruby --version | awk '{print $2}'` was installed at `which ruby`."
+      true_with "Nice, ruby $(ruby --version | awk '{print $2}') was installed at $(which ruby)."
     fi
   fi
 }
