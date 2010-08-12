@@ -11,7 +11,7 @@ function has {
 }
 
 function pkg_manager {
-  managers=(apt-get aptitude brew yum)
+  managers=(apt-get aptitude brew pacman yum)
   for manager in "${managers[@]}"; do
     has "$manager" && echo "$manager" && exit
   done
@@ -32,6 +32,7 @@ function install_ruby {
     apt-get) sudo apt-get install -qqy ruby ;;
     aptitude) sudo aptitude -y install ruby ;;
     brew) brew install ruby ;;
+    pacman) sudo pacman -Syq --noconfirm --noprogressbar ruby ;;
     yum) sudo yum -y install ruby ;;
     *)
   esac
