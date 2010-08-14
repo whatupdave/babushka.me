@@ -6,12 +6,44 @@ to="$HOME/.babushka/bootstrap"
 function true_with { echo "$1"; true; }
 function false_with { echo "$1"; false; }
 
+function has {
+  type "$1" >/dev/null 2>&1
+}
+
+function pkg_manager {
+  managers=(apt-get aptitude brew pacman yum)
+  for manager in "${managers[@]}"; do
+    has "$manager" && echo "$manager" && exit
+  done
+}
+
+function update_manager {
+  case $(pkg_manager) in
+    apt-get) sudo apt-get update -qqy ;;
+    aptitude) sudo aptitude -y update ;;
+    brew) brew update ;;
+    yum) sudo yum -y update ;;
+    *)
+  esac
+}
+
+function install_ruby {
+  case $(pkg_manager) in
+    apt-get) sudo apt-get install -qqy ruby ;;
+    aptitude) sudo aptitude -y install ruby ;;
+    brew) brew install ruby ;;
+    pacman) sudo pacman -Syq --noconfirm --noprogressbar ruby ;;
+    yum) sudo yum -y install ruby ;;
+    *)
+  esac
+}
+
 function check {
-  if [ ! -x "`which ruby`" ] && [ ! -x "`which apt-get`" ]; then
-    echo "Sorry, you don't have ruby installed, and I only know how to install it for you"
-    false_with "on apt-based systems."
-  elif [ ! -x "`which curl`" ] && [ ! -x "`which wget`" ]; then
-    false_with "Sorry, you need either curl or wget installed before I can download."
+  if ! has 'ruby' && ! has $(pkg_manager); then
+    echo "Sorry, you don't have ruby installed, and I don't know how to install it for you"
+    false_with "on this system."
+  elif ! has 'curl' && ! has 'wget'; then
+    false_with "Sorry, you need either curl or wget installed before I can download babushka."
   else
     true
   fi
@@ -30,10 +62,10 @@ function welcome {
   echo "http://babushka.me. Then, using it to run \"babushka 'babushka<%= " next" if opts[:next] %>'\", which"
   echo "installs or updates babushka and its dependencies as required."
   echo ""
-  if [ -x "`which ruby`" ]; then
-    echo "You already have ruby `ruby --version | awk '{print $2}'`, so you're all set."
+  if has 'ruby'; then
+    echo "You already have ruby $(ruby --version | awk '{print $2}'), so you're all set."
   else
-    echo "You don't have ruby installed, so we'll take care of that first (using apt)."
+    echo "You don't have ruby installed, so we'll take care of that first (using $(pkg_manager))."
   fi
   echo ""
   <% if opts[:hard] %>
@@ -45,16 +77,16 @@ function welcome {
 }
 
 function install_ruby_if_required {
-  if [ -x "`which ruby`" ]; then
+  if has 'ruby'; then
     true # already installed
   else
-    echo "First we need to install ruby (via apt)."
-    sudo apt-get update -qqy
-    sudo apt-get install -qqy ruby
-    if [ ! -x "`which ruby`" ]; then
+    echo "First we need to install ruby (via $(pkg_manager))."
+    update_manager
+    install_ruby
+    if ! has 'ruby'; then
       false_with "Argh, the ruby install failed."
     else
-      true_with "Nice, ruby `ruby --version | awk '{print $2}'` was installed at `which ruby`."
+      true_with "Nice, ruby $(ruby --version | awk '{print $2}') was installed at $(which ruby)."
     fi
   fi
 }
@@ -73,9 +105,9 @@ function create_install_dir {
 }
 
 function stream_tarball {
-  if [ -x "`which curl`" ]; then
+  if has 'curl'; then
     curl -L -\# "$from" | tar -zxf - --strip-components 1
-  elif [ -x "`which wget`" ]; then
+  elif has 'wget'; then
     wget --progress=bar "$from" -O - | tar -zxf - --strip-components 1
   fi
 }
