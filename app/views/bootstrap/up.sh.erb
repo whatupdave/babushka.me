@@ -11,7 +11,7 @@ function has {
 }
 
 function pkg_manager {
-  managers=(apt-get aptitude brew pacman yum)
+  managers=(aptitude apt-get brew pacman yum)
   for manager in "${managers[@]}"; do
     has "$manager" && echo "$manager" && exit
   done
