@@ -20,7 +20,7 @@ class Dep < ActiveRecord::Base
   def info
     {
       :name => name,
-      :source_url => source.url,
+      :source_uri => source.uri,
       :runs_this_week => runs_this_week,
       :success_rate_this_week => success_rate_this_week
     }
