@@ -2,11 +2,9 @@ class RunsController < ApplicationController
   respond_to :json
 
   def create
-    @run = Run.new({
-      :result => params[:result],
-      :dep_name => params[:dep_name],
-      :source_url => params[:source_url]
-    })
+    @run = Run.new(params.slice(
+      *%w[result run_at system_info dep_name source_uri]
+    ))
     if @run.save
       respond_to {|format| format.json { render :json => @run } }
     else
