@@ -21,6 +21,7 @@ class Dep < ActiveRecord::Base
     {
       :name => name,
       :source_uri => source.uri,
+      :total_runs => runs.count,
       :runs_this_week => runs_this_week,
       :success_rate_this_week => success_rate_this_week
     }
