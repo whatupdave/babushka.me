@@ -7,8 +7,15 @@ class RunsController < ApplicationController
     ))
     if @run.save
       respond_to {|format| format.json { render :json => @run } }
+      dump_db
     else
       respond_to {|format| format.json { render :json => @run, :status => 406 } }
     end
+  end
+
+  private
+
+  def dump_db
+    Delayed::Job.enqueue BabushkaRun.new('benhoskings:babushka.me db dump')
   end
 end
