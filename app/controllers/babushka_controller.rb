@@ -1,6 +1,6 @@
 class BabushkaController < ApplicationController
   def tarball
-    Delayed::Job.enqueue BabushkaRun.new('babushka tarball')
+    babushka 'babushka tarball'
     render :nothing => true
   end
 end
