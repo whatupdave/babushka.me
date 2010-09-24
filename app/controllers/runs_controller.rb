@@ -16,6 +16,6 @@ class RunsController < ApplicationController
   private
 
   def dump_db
-    Delayed::Job.enqueue BabushkaRun.new('benhoskings:babushka.me db dump')
+    Delayed::Job.enqueue BabushkaRun.new('babushka.me db dump')
   end
 end
