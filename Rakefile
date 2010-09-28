@@ -7,7 +7,7 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-Rails::Application.load_tasks
+BabushkaMe::Application.load_tasks
 
 begin
   require 'delayed/tasks'
