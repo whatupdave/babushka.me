@@ -1,6 +1,10 @@
 class DepsController < ApplicationController
   def search
-    @deps = Dep.search(params[:q])
+    @deps = if params[:q] == 'all'
+      Dep.all
+    else
+      Dep.search(params[:q])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
