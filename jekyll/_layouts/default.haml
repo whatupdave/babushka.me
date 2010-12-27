@@ -15,27 +15,27 @@
   %body
     %header
       %h1
-        %a{:href => '/'} babushka
+        %a{href: '/'} babushka
     %nav
-      %a{:href => '#hello'} hello
-      %a{:href => '#demo'} demo
-      %a{:href => '#get_it'} get it
-      %a.external{:href => 'http://github.com/benhoskings/babushka'}
+      %a{href: '#hello'} hello
+      %a{href: '#demo'} demo
+      %a{href: '#get_it'} get it
+      %a.external{href: 'http://github.com/benhoskings/babushka'}
         %span.arrow ↪
         github
-      %a.external{:href => 'http://twitter.com/babushka_app'}
+      %a.external{href: 'http://twitter.com/babushka_app'}
         %span.arrow ↪
         twitter
 
     %article#hello
       %aside
         Welcome! To get involved or read about the latest developments, the
-        %a{:href => "http://groups.google.com/group/babushka_app"} Google group
+        %a{href: "http://groups.google.com/group/babushka_app"} Google group
         is a good place to start. There are some preliminary docs ready in
-        %a{:href => "http://github.com/benhoskings/babushka#readme"} the README
+        %a{href: "http://github.com/benhoskings/babushka#readme"} the README
         and
         = succeed ";" do
-          %a{:href => "http://benhoskin.gs/2010/08/01/design-and-dsl-changes-in-babushka-v0.6"} this writeup
+          %a{href: "http://benhoskin.gs/2010/08/01/design-and-dsl-changes-in-babushka-v0.6"} this writeup
         more complete documentation is in progress.
 
       %p When you spend time researching something new, it's pretty easy to forget what you found. That means next time, you have to re-research it again.
@@ -47,7 +47,7 @@
       %p
         You can check out the other babushka screencasts
         = succeed '.' do
-          %a{:href => 'http://vimeo.com/benhoskings/videos/search:babushka/sort:newest'} here
+          %a{href: 'http://vimeo.com/benhoskings/videos/search:babushka/sort:newest'} here
 
     %article#get_it
       %p
@@ -57,27 +57,27 @@
         That's a script that knows enough to install ruby if required (babushka's only runtime dependency), and then download a temporary babushka that knows how to do the proper install.
       .bootstrap_select
         %form
-          %input#bootstrap_curl{:name => "bootstrap_select", :type => "radio", :value => "curl"}/
+          %input#bootstrap_curl{name: "bootstrap_select", type: "radio", value: "curl"}/
           %label{:for => "bootstrap_curl"} curl
-          %input#bootstrap_wget{:name => "bootstrap_select", :type => "radio", :value => "wget"}/
+          %input#bootstrap_wget{name: "bootstrap_select", type: "radio", value: "wget"}/
           %label{:for => "bootstrap_wget"} wget
       %p New Macs have curl, stock Ubuntu has wget.
       .bootstrap_option.curl
-        %input{:readonly => "true", :type => "text", :value => "bash -c \"`curl babushka.me/up`\""}/
+        %input{readonly: "true", type: "text", value: "bash -c \"`curl babushka.me/up`\""}/
       .bootstrap_option.wget
-        %input{:readonly => "true", :type => "text", :value => "bash -c \"`wget -O - babushka.me/up`\""}/
+        %input{readonly: "true", type: "text", value: "bash -c \"`wget -O - babushka.me/up`\""}/
       %p It's the perfect way to get started on a new server, or on your new laptop, since it can literally be the first command you run on the machine.
       %p
         If you'd prefer to install manually or just check out the code, check
-        %a{:href => "http://github.com/benhoskings/babushka"} the github page
+        %a{href: "http://github.com/benhoskings/babushka"} the github page
         for the repo URL.
 
     %footer
       %span
         babushka is by
-        %a{:href => 'http://twitter.com/ben_h'} Ben Hoskings
+        %a{href: 'http://twitter.com/ben_h'} Ben Hoskings
 
-    %script{:src => "/javascripts/jquery.js", :type => "text/javascript"}
+    %script{src: "/javascripts/jquery.js", type: "text/javascript"}
 
     :javascript
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
