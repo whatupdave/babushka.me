@@ -2,13 +2,8 @@
 title: Babushka
 ---
 
-<h1>babushka</h1>
+When you spend time researching something new, it's pretty easy to forget what you found. That means next time, you have to re-research it again.
 
-<p>You’ve just created a new nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:</p>
+A lot of the tech jobs we do manually aren't challenging or fun, but they're finicky and have to be done just right. They're chores. Things that are important to do, but that are better automated than done manually.
 
-<ul>
-  <li><p><strong>Change this page’s content</strong> by editing the “index.html” file in the “content” directory. This is the actual page content, and therefore doesn’t include the header, sidebar or style information (those are part of the layout).</p></li>
-  <li><p><strong>Change the layout</strong>, which is the “default.html” file in the “layouts” directory, and create something unique (and hopefully less bland).</p></li>
-</ul>
-
-<p>If you need any help with customizing your nanoc web site, be sure to check out the documentation (see sidebar), and be sure to subscribe to the discussion group (also see sidebar). Enjoy!</p>
+That's what babushka is for. Once you describe a job using its DSL, babushka knows not only how to accomplish each part of the job, but also how to check if each part is already satisfied. For each component of the job, a test, along with the code to make that test pass--test-driven sysadmin.
