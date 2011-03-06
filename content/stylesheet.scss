@@ -1,6 +1,19 @@
 $leading: 22px;
 $padding: 24px;
 $nav-width: 200px;
+$background_color: #fff;
+$hover_color: #8e173f;
+$babushka_me_up_color: #333333;
+
+@mixin textured($with_background: $background_color) {
+  background: $with_background url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==); }
+
+@mixin radius($rad: 3px) {
+  -webkit-border-radius: $rad;
+  -moz-border-radius: $rad;
+  -o-border-radius: $rad;
+  border-radius: $rad; }
+
 * {
   margin: 0;
   padding: 0;
@@ -60,4 +73,21 @@ body > nav {
   ul {
     list-style-type: none;
   }
+}
+
+
+pre, code {
+  @include radius(3px);
+  @include textured;
+  background-color: #fafafa;
+}
+
+pre {
+  padding: 0.5em 1em;
+  line-height: 1.2;
+}
+
+code {
+  display: inline-block;
+  padding: 0 0.3em;
 }
