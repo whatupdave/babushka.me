@@ -10,3 +10,7 @@ guard 'nanoc' do
   watch %r{^layouts/.*}
   watch %r{^content/.*}
 end
+
+guard 'livereload' do
+  watch %r{output/}
+end
