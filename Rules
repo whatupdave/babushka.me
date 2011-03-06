@@ -18,7 +18,7 @@ compile '/images/*/' do
 end
 
 compile '*' do
-  filter :rdiscount
+  filter :rdiscount, :extensions => [:smart]
   layout 'default'
 end
 
