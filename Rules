@@ -20,6 +20,7 @@ compile '*' do
 end
 
 route '/stylesheet/' do
+  filter :sass, :syntax => :scss
   '/style.css'
 end
 
