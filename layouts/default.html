@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <meta name="generator" content="nanoc 3.1.6">
   </head>
-  <body>
+  <body class="<%= @item[:title].downcase.gsub(' ', '-').gsub(/[^a-z\-]/, '') %>">
     <article>
       <%= yield %>
     </article>
