@@ -72,14 +72,23 @@ body > nav {
   padding: 0 $padding 0 0;
   border-right: 1px solid #cccccc;
   text-align: right;
+  h1 {
+    @include clearfix;
+    a {
+      display: block;
+      img {
+        display: block;
+        float: right;
+        height: 88px;
+        margin-right: -15px;
+      }
+    }
+  }
   h2 {
     text-transform: uppercase;
     font-size: 13px;
     color: #333333;
     letter-spacing: 1px;
-    a {
-      display: block;
-    }
   }
   ul {
     list-style-type: none;
