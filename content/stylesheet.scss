@@ -13,7 +13,7 @@ a {
   &:hover {
     color: #ff9900; } }
 
-#main {
+body > article {
   position: absolute;
   top: 40px;
   left: 280px;
@@ -34,7 +34,7 @@ a {
     font-size: 15px;
     line-height: 20px; } }
 
-#sidebar {
+body > nav {
   position: absolute;
   top: 40px;
   left: 20px;
