@@ -47,7 +47,11 @@ body > nav {
     font-size: 13px;
     color: #333333;
     letter-spacing: 1px;
-    line-height: 20px; }
+    line-height: 20px;
+    a {
+      display: block;
+    }
+  }
   ul {
     list-style-type: none;
     margin: 20px 0; }
