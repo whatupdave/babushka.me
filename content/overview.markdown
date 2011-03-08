@@ -29,18 +29,15 @@ That little chunk of ruby lets you do this:
         Generating a new key... done.
       }
     } ✓ public key
-    ⚡ 
 
 And if we run it a second time:
 
     ⚡ babushka 'public key'
     public key {
     } ✓ public key
-    ⚡
 
 The first time, babushka ran the `met?` block, found that the dep wasn't met, and so ran the `meet` block to generate the key, as you can see above. Then it ran `met?` again to see if running the `meet` made the failing test pass. It did, so we see `✓ public key`.
 
-The second time through, babushka ran the `met?` block like the first time, but found that the dep was already met and so exited.
 
 Deps are written in a declarative style, which makes them a good reference too. Reading over the `'public key'` dep above, you check if you have a public key by inspecting `~/.ssh/id_dsa.pub`, and you generate a new one by running `ssh-keygen` with a certain set of options.
 
