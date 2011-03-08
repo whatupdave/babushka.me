@@ -30,13 +30,16 @@ That little chunk of ruby lets you do this:
       }
     } ✓ public key
 
-And if we run it a second time:
+Babushka starts with `met?`, which in this case returned something falsey--a failing test. Next, it called `meet`, which generated a new key, and threw away the return value. And now `met?` returns true-ish, which means that running `meet` made the failing `met?` test pass. Success!
+
+If we run it a second time, we see this:
 
     ⚡ babushka 'public key'
     public key {
     } ✓ public key
 
-The first time, babushka ran the `met?` block, found that the dep wasn't met, and so ran the `meet` block to generate the key, as you can see above. Then it ran `met?` again to see if running the `meet` made the failing test pass. It did, so we see `✓ public key`.
+Babushka starts with the `met?` test like the first time, but since it's already passing now, there's nothing to do.
+
 
 
 Deps are written in a declarative style, which makes them a good reference too. Reading over the `'public key'` dep above, you check if you have a public key by inspecting `~/.ssh/id_dsa.pub`, and you generate a new one by running `ssh-keygen` with a certain set of options.
