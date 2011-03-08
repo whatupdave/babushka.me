@@ -49,6 +49,12 @@ h1, h2, h3, p, ul {
   margin: $leading 0;
 }
 
+h2 {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
 body > article {
   position: absolute;
   top: $leading;
@@ -85,10 +91,7 @@ body > nav {
     }
   }
   h2 {
-    text-transform: uppercase;
-    font-size: 13px;
     color: #333333;
-    letter-spacing: 1px;
   }
   ul {
     list-style-type: none;
