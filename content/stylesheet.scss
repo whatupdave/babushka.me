@@ -63,6 +63,13 @@ h2 {
   letter-spacing: 1px;
 }
 
+body > aside {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  border-bottom: #bbb 1px solid;
+}
+
 body > article {
   position: absolute;
   top: $leading;
