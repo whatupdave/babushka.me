@@ -18,7 +18,7 @@
   </head>
   <body class="<%= @item[:title].downcase.gsub(' ', '-').gsub(/[^a-z\-]/, '') %>">
     <aside role="contentinfo">
-      <a rel="external" href="https://github.com/benhoskings/babushka-docs/commit/<%= git_ref %>"><%= git_ref %></a>
+      <a class="ref" rel="external" href="https://github.com/benhoskings/babushka-docs/commit/<%= git_ref %>"><%= git_ref %></a>
     </aside>
     <article>
       <%= yield %>
