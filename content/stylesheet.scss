@@ -25,6 +25,10 @@ $babushka_me_up_color: #333333;
   }
 }
 
+abbr,article,aside,canvas,figure,footer,header,hgroup,nav,section {
+  display: block;
+}
+
 * {
   margin: 0;
   padding: 0;
