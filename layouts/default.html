@@ -18,7 +18,6 @@
   </head>
   <body class="<%= @item[:title].downcase.gsub(' ', '-').gsub(/[^a-z\-]/, '') %>">
     <aside role="contentinfo">
-      built from
       <a href="https://github.com/benhoskings/babushka-docs/commit/<%= git_ref %>"><%= git_ref %></a>
     </aside>
     <article>

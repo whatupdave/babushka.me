@@ -64,10 +64,12 @@ h2 {
 }
 
 body > aside {
-  position: absolute;
-  top: 0;
-  right: 1em;
-  border-bottom: #bbb 1px solid;
+  position: fixed;
+  top: 0.2em;
+  right: 0.5em;
+  &:before {
+    content: '↪';
+  }
 }
 
 body > article {
