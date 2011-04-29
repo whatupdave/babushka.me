@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
-gem 'rails', '3.0.3'
+
+gem 'rails', '3.0.7'
 gem 'pg'
 gem 'hirb'
-gem 'delayed_job', '2.0.3'
+gem 'delayed_job'
