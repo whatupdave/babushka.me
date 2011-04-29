@@ -1,4 +1,4 @@
-BabushkaMe::Application.routes.draw do |map|
+BabushkaMe::Application.routes.draw do
   match '/deps/search.:format/:q', :to => 'deps#search', :via => :get
   match '/runs.:format', :to => 'runs#create', :via => :post
 
