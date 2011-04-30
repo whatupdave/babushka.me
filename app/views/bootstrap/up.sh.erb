@@ -38,6 +38,14 @@ function install_ruby {
   esac
 }
 
+function logo {
+  echo ""
+  echo ".       .           .   .      "
+  echo "|-. ,-. |-. . . ,-. |-. | , ,-."
+  echo "| | ,-| | | | | \`-. | | |<  ,-|"
+  echo "^-' \`-^ ^-' \`-^ \`-' ' ' ' \` \`-^"
+}
+
 function check {
   if ! has 'curl' && ! has 'wget'; then
     false_with "Sorry, you need either curl or wget installed before I can download babushka."
@@ -49,11 +57,6 @@ function check {
 }
 
 function welcome {
-  echo ""
-  echo ".       .           .   .      "
-  echo "|-. ,-. |-. . . ,-. |-. | , ,-."
-  echo "| | ,-| | | | | \`-. | | |<  ,-|"
-  echo "^-' \`-^ ^-' \`-^ \`-' ' ' ' \` \`-^"
   echo ""
   echo "Hi there :)"
   echo ""
@@ -168,6 +171,7 @@ function do_bootstrap {
   handle_install && on_install_success || on_install_failure
 }
 
+logo
 if check; then
   if welcome; then
     echo "<%= opts[:hard] ? "Let\'s do this." : "Excellent." %>"
