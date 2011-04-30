@@ -22,7 +22,7 @@ function update_manager {
     apt-get) apt-get update -qqy ;;
     aptitude) aptitude -y update ;;
     brew) brew update ;;
-    yum) yum -y update ;;
+    yum) true ;;
     *)
   esac
 }
