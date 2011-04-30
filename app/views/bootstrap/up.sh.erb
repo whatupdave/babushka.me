@@ -39,11 +39,11 @@ function install_ruby {
 }
 
 function check {
-  if ! has 'ruby' && ! has $(pkg_manager); then
+  if ! has 'curl' && ! has 'wget'; then
+    false_with "Sorry, you need either curl or wget installed before I can download babushka."
+  elif ! has 'ruby' && ! has $(pkg_manager); then
     echo "Sorry, you don't have ruby installed, and I don't know how to install it for you"
     false_with "on this system."
-  elif ! has 'curl' && ! has 'wget'; then
-    false_with "Sorry, you need either curl or wget installed before I can download babushka."
   else
     true
   fi
