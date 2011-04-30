@@ -19,21 +19,21 @@ function pkg_manager {
 
 function update_manager {
   case $(pkg_manager) in
-    apt-get) sudo apt-get update -qqy ;;
-    aptitude) sudo aptitude -y update ;;
+    apt-get) apt-get update -qqy ;;
+    aptitude) aptitude -y update ;;
     brew) brew update ;;
-    yum) sudo yum -y update ;;
+    yum) yum -y update ;;
     *)
   esac
 }
 
 function install_ruby {
   case $(pkg_manager) in
-    apt-get) sudo apt-get install -qqy ruby ;;
-    aptitude) sudo aptitude -y install ruby ;;
+    apt-get) apt-get install -qqy ruby ;;
+    aptitude) aptitude -y install ruby ;;
     brew) brew install ruby ;;
-    pacman) sudo pacman -Syq --noconfirm --noprogressbar ruby ;;
-    yum) sudo yum -y install ruby ;;
+    pacman) pacman -Syq --noconfirm --noprogressbar ruby ;;
+    yum) yum -y install ruby ;;
     *)
   esac
 }
