@@ -51,7 +51,7 @@ function check {
     false_with "Sorry, you need either curl or wget installed before I can download babushka."
   elif ! has 'ruby'; then
     if ! has $(pkg_manager); then
-      false_with "Sorry, you don't have ruby installed, and I don't know how to install it for you\non this system."
+      false_with "Sorry, you don't have ruby installed, and I couldn't find\na package manager I recognise."
     elif [ $(whoami) != 'root' ] && [ $(pkg_manager) != 'brew' ]; then
       false_with "You don't have ruby installed. I can install it via $(pkg_manager),\nbut only when running as root."
     else
