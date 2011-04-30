@@ -42,8 +42,7 @@ function check {
   if ! has 'curl' && ! has 'wget'; then
     false_with "Sorry, you need either curl or wget installed before I can download babushka."
   elif ! has 'ruby' && ! has $(pkg_manager); then
-    echo "Sorry, you don't have ruby installed, and I don't know how to install it for you"
-    false_with "on this system."
+    false_with "Sorry, you don't have ruby installed, and I don't know how to install it for you\non this system."
   else
     true
   fi
