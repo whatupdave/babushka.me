@@ -1,7 +1,8 @@
 #!/bin/bash
 
+home="~$(whoami)" # $HOME isn't always set.
 from="http://babushka.me/tarballs/babushka.tgz"
-to="$HOME/.babushka/bootstrap"
+to="$home/.babushka/bootstrap"
 
 function true_with { echo -e "\n$1"; true; }
 function false_with { echo -e "\n$1"; false; }
@@ -100,8 +101,8 @@ function install_ruby_if_required {
 }
 
 function clean_up_install_dir {
-  mkdir -p "$HOME/.babushka" &&
-  cd "$HOME/.babushka" &&
+  mkdir -p "$home/.babushka" &&
+  cd "$home/.babushka" &&
   rm -rf "bootstrap"
   cd
 }
