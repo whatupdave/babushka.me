@@ -1,4 +1,4 @@
-dep 'deployed' do
+dep 'on deploy' do
   requires 'built'
 end
 
