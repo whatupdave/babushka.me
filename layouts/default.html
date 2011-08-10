@@ -21,9 +21,6 @@
     <aside role="contentinfo">
       <a class="ref" rel="external" href="https://github.com/benhoskings/babushka-docs/commit/<%= git_ref %>"><%= git_ref %></a>
     </aside>
-    <article>
-      <%= yield %>
-    </article>
     <nav>
       <h1>
         <a href="/">
@@ -60,5 +57,8 @@
         <li><a href="irc://chat.freenode.net/#babushka">#babushka on freenode</a></li>
       </ul>
     </nav>
+    <article>
+      <%= yield %>
+    </article>
   </body>
 </html>

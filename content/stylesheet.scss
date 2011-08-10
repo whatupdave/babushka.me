@@ -1,6 +1,6 @@
-$leading: 22px;
-$padding: 24px;
-$nav-width: 200px;
+$leading: 24px;
+$gutter: 24px;
+$nav-width: 140px;
 $article-width: 540px;
 $background_color: #fff;
 $hover_color: #8e173f;
@@ -36,13 +36,11 @@ abbr,article,aside,canvas,figure,footer,header,hgroup,nav,section {
   font: 12px/#{$leading} Menlo, Monaco, monospace;
 }
 
-a.ref,
-pre, code {
-  font: 10pt/#{$leading} Menlo, Monaco, monospace;
-}
-
 body {
-  background: white; }
+  background: white;
+  width: $gutter + $nav-width + $gutter + 1 + $gutter + $article-width + $gutter;
+  margin: 0 auto;
+}
 
 a {
   text-decoration: none;
@@ -76,10 +74,17 @@ body > aside {
   }
 }
 
+body {
+  padding-top: $leading;
+}
+
+body >article,
+body >nav {
+  float: left;
+  padding: 0 $gutter;
+}
+
 body > article {
-  position: absolute;
-  top: $leading;
-  left: $padding + $nav-width + $padding + 1 + $padding;
   width: $article-width;
   h1 {
     font-size: 40px;
@@ -92,11 +97,7 @@ body > article {
 }
 
 body > nav {
-  position: absolute;
-  top: $leading;
-  left: $padding;
   width: $nav-width;
-  padding: 0 $padding 0 0;
   border-right: 1px solid #cccccc;
   text-align: right;
   h1 {
@@ -119,7 +120,6 @@ body > nav {
     list-style-type: none;
   }
 }
-
 
 pre, code {
   @include radius(3px);
