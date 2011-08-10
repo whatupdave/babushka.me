@@ -42,6 +42,10 @@ body {
   margin: 0 auto;
 }
 
+pre {
+  overflow-x: auto;
+}
+
 a {
   text-decoration: none;
   &:link, &:visited {
