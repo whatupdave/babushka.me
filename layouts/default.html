@@ -58,6 +58,9 @@
       </ul>
     </nav>
     <article>
+      <% unless @item[:title] == 'Babushka' %>
+        <h1><%= @item[:title] %></h1>
+      <% end %>
       <%= yield %>
     </article>
   </body>
