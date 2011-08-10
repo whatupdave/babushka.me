@@ -64,9 +64,17 @@ h1, h2, h3, p, pre, ul {
   margin: $leading 0;
 }
 
-h2 {
-  text-transform: uppercase;
+h1, h2 {
   font-size: 13px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h2 {
   letter-spacing: 1px;
   body >article & {
     border-bottom: $ruled-line;
@@ -93,11 +101,6 @@ body >nav {
 
 body > article {
   width: $article-width;
-  h1 {
-    font-size: 40px;
-    font-weight: normal;
-    line-height: 40px;
-    letter-spacing: -1px; }
   li {
     list-style-type: square;
   }
