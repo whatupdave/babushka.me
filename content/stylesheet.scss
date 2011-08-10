@@ -1,5 +1,5 @@
 $leading: 24px;
-$gutter: 24px;
+$gutter: 36px;
 $nav-width: 140px;
 $article-width: 540px;
 $background_color: #fff;
@@ -38,7 +38,7 @@ abbr,article,aside,canvas,figure,footer,header,hgroup,nav,section {
 
 body {
   background: white;
-  width: $gutter + $nav-width + $gutter + 1 + $gutter + $article-width + $gutter;
+  width: $gutter + $nav-width + $gutter + $gutter + $article-width + $gutter;
   margin: 0 auto;
 }
 
@@ -106,7 +106,6 @@ body > article {
 
 body > nav {
   width: $nav-width;
-  border-right: 1px solid #cccccc;
   text-align: right;
   h1 {
     @include clearfix;
