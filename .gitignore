@@ -3,3 +3,8 @@
 db/*.sqlite3
 log/*.log
 tmp/
+
+public/index.html
+public/**/index.html
+public/styles/styles.css
+public/images/babushka-logo.png
