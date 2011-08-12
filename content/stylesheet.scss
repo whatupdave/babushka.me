@@ -1,0 +1,160 @@
+$leading: 24px;
+$gutter: 36px;
+$nav-width: 160px;
+$article-width: 540px;
+$feature-indent: 100px;
+$background_color: #fff;
+$hover_color: #8e173f;
+$babushka_me_up_color: #333333;
+$ruled-line: #bbb 1px solid;
+
+@mixin textured($with_background: $background_color) {
+  background: $with_background url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpiYGBgkAJihv///4MxLj4yAxfNwIBDAMFHMxKnSVLEmjiY3AQQYADuTBThP5y9ZgAAAABJRU5ErkJggg==); }
+
+@mixin radius($rad: 3px) {
+  -webkit-border-radius: $rad;
+  -moz-border-radius: $rad;
+  -o-border-radius: $rad;
+  border-radius: $rad; }
+
+@mixin clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ".";
+    clear: both;
+    height: 0;
+  }
+}
+
+abbr,article,aside,canvas,figure,footer,header,hgroup,nav,section {
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: 12px/#{$leading} Menlo, Monaco, monospace;
+}
+
+body {
+  background: white;
+  width: $gutter + $nav-width + $gutter + $gutter + $article-width + $gutter;
+  margin: 0 auto;
+  padding-top: $leading;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+a {
+  text-decoration: none;
+  &:link, &:visited {
+    color: #ff3300; }
+  &:hover {
+    color: #ff9900; } }
+
+img {
+  border: none;
+}
+
+h1, h2, h3, p, pre, ul {
+  margin: $leading 0;
+}
+
+h1, h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h2 {
+  letter-spacing: 1px;
+  body >article & {
+    border-bottom: $ruled-line;
+    margin-bottom: -1px;
+  }
+}
+
+body > aside {
+  position: fixed;
+  top: 0; right: 0;
+  padding: 0.2em 0.5em;
+  background-color: rgba(255,255,255,0.67);
+  z-index: 10;
+  &:before {
+    content: '↪';
+  }
+}
+
+body >article,
+body >nav {
+  float: left;
+  padding: 0 $gutter;
+}
+
+body > article {
+  width: $article-width;
+  li {
+    list-style-type: square;
+  }
+}
+
+body > nav {
+  width: $nav-width;
+  text-align: right;
+  h1 {
+    @include clearfix;
+    a {
+      display: block;
+      img {
+        display: block;
+        float: right;
+        height: 88px;
+        margin-right: -15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  h2 {
+    color: #333333;
+  }
+  ul {
+    list-style-type: none;
+  }
+}
+
+pre, code {
+  @include radius(3px);
+  @include textured;
+  background-color: #fafafa;
+}
+
+pre {
+  padding: 0.5em 1em;
+  line-height: 1.2;
+}
+
+code {
+  display: inline-block;
+  padding: 0 0.3em;
+}
+
+/* the title page */
+body.babushka {
+  article {
+    margin-top: 121px;
+    border: $ruled-line;
+    @include radius(4px);
+
+    margin-left: $feature-indent;
+    margin-right: $feature-indent;
+    width: $article-width - ($feature-indent * 2) - 2px;
+  }
+}
