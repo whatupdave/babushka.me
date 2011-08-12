@@ -10,7 +10,7 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/stylesheet/' do
+compile '/styles/' do
   filter :sass, :syntax => :scss
 end
 
@@ -22,8 +22,8 @@ compile '*' do
   layout 'default'
 end
 
-route '/stylesheet/' do
-  '/style.css'
+route '/styles/' do
+  '/styles/styles.css'
 end
 
 route '/images/*/' do
