@@ -23,7 +23,9 @@ Dep sources are shared using git, so you can rely on their immutability once you
 
 ## Dep Sources
 
-TODO
+A dep source is just a git repo, with some deps in it. There's no structure to a dep source - the `.rb` files within it can have any names and be within any directory structure you like.
+
+As a convention, I tend to keep related deps together in top-level `.rb` files, and use a top-level `templates/` directory for meta deps. But the layout of the files and directories doesn't affect the way babushka makes the deps & templates available, so use whatever convention you like.
 
 ## Custom Sources
 
