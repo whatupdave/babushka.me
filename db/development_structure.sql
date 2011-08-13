@@ -241,6 +241,22 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
+-- Name: deps_source_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY deps
+    ADD CONSTRAINT deps_source_id_fk FOREIGN KEY (source_id) REFERENCES sources(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
+-- Name: runs_dep_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY runs
+    ADD CONSTRAINT runs_dep_id_fk FOREIGN KEY (dep_id) REFERENCES deps(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -257,3 +273,5 @@ INSERT INTO schema_migrations (version) VALUES ('20100922094016');
 INSERT INTO schema_migrations (version) VALUES ('20100922094143');
 
 INSERT INTO schema_migrations (version) VALUES ('20110813030027');
+
+INSERT INTO schema_migrations (version) VALUES ('20110813031100');
