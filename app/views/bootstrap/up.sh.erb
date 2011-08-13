@@ -1,6 +1,11 @@
 #!/bin/bash
 
-home=$HOME
+# Can't use $HOME, because sometimes it's not set.
+# Can't use ~, because it depends on $HOME to expand.
+# Can't use ~$(whoami) directly, because it doesn't expand inline.
+# So: write a string in which ~$(whoami) is expanded, and run it in a subshell.
+home=$(sh -c "echo ~$(whoami)")
+
 from="http://babushka.me/tarballs/babushka.tgz"
 to="$home/.babushka/bootstrap"
 
