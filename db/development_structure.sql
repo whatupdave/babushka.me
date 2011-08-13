@@ -234,6 +234,20 @@ CREATE INDEX delayed_jobs_priority ON delayed_jobs USING btree (priority, run_at
 
 
 --
+-- Name: deps_unique_source_id_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX deps_unique_source_id_name ON deps USING btree (source_id, name);
+
+
+--
+-- Name: sources_unique_uri; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX sources_unique_uri ON sources USING btree (uri);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -275,3 +289,5 @@ INSERT INTO schema_migrations (version) VALUES ('20100922094143');
 INSERT INTO schema_migrations (version) VALUES ('20110813030027');
 
 INSERT INTO schema_migrations (version) VALUES ('20110813031100');
+
+INSERT INTO schema_migrations (version) VALUES ('20110813031440');
