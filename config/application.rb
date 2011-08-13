@@ -10,5 +10,6 @@ module BabushkaMe
   class Application < Rails::Application
     config.autoload_paths += %W[#{config.root}/lib]
     config.filter_parameters += [:password]
+    config.active_record.schema_format = :sql
   end
 end
