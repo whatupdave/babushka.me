@@ -68,8 +68,8 @@ CREATE TABLE deps (
     id integer NOT NULL,
     source_id integer NOT NULL,
     name character varying(128) NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -100,10 +100,10 @@ CREATE TABLE runs (
     id integer NOT NULL,
     dep_id integer NOT NULL,
     result character varying(8) NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    run_at timestamp without time zone,
-    system_info character varying(64)
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    run_at timestamp without time zone NOT NULL,
+    system_info character varying(64) NOT NULL
 );
 
 
@@ -142,8 +142,8 @@ CREATE TABLE schema_migrations (
 CREATE TABLE sources (
     id integer NOT NULL,
     uri character varying(128) NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -255,3 +255,5 @@ INSERT INTO schema_migrations (version) VALUES ('20100609131358');
 INSERT INTO schema_migrations (version) VALUES ('20100922094016');
 
 INSERT INTO schema_migrations (version) VALUES ('20100922094143');
+
+INSERT INTO schema_migrations (version) VALUES ('20110813030027');
