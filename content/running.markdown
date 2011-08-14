@@ -10,7 +10,7 @@ TODO
 
 TODO
 
-# Source Loading
+## Source Loading
 
 To load the source, babushka requires every .rb file (in an inteterminate order; `Dir.glob` is unordered on Linux), and stores the names and blocks for each dep. The deps themselves are defined lazily, though -- the outer block of each dep is only run as the dep itself is run. (Run with `--debug` and watch for the 'defining dep against template' messages to see for yourself.)
 
